@@ -310,6 +310,7 @@ button {
   color: var(--primary-color);
   height: 150px;
   background-color:lightcyan;
+  background-image: url(../assets/images/bg-encabezado.webp);
 }
 
 .contenido{
@@ -320,7 +321,7 @@ button {
 aside{
   background-color: var(--primary-color);  
   padding: 1rem;
-  width: 30%;  
+  width: 50%; 
 }
 
 main{
@@ -329,7 +330,8 @@ main{
   padding: 1rem;
   gap: 1rem;
   flex-wrap: wrap;
-  flex-grow: 1;  
+  flex-grow: 1;
+  justify-content: center;  
 }
 
 article {
@@ -339,22 +341,21 @@ article {
   border: #021442;
   border-radius: 3px;
   color: var(--dark-grey);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
   flex-grow: 1;
-  max-width: 26%;
-  min-width: auto;
+  max-width: 33%;
+  min-width: 200px;  
 }
 
  article img {
   height: 204px;
-  /*position: relative;
-  
+  position: relative;  
   display: block;
   overflow: hidden;
   width: 100%;
   object-fit: cover;
   object-position: center center;
-  */
+  
 }
 
 .badge {
