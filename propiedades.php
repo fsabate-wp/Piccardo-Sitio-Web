@@ -183,7 +183,7 @@ $data = json_decode($result, true);
     <div id="container">
       <section class="encabezado">       
        <div class="buscador">
-        <h1>¡Encuentra tu propiedad ideal!</h1>
+        <h1>¡Encontra tu propiedad ideal!</h1>
         <form action="#">
             <div class="flex-row">
                 <label for="tipoOperacion" hidden>Tipo de Operación:</label>
