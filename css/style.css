@@ -307,10 +307,58 @@ button {
   align-items: center;
   flex-direction: column;
   gap: 16px;
-  color: var(--primary-color);
-  height: 150px;
-  background-color:lightcyan;
+  color: white;
+  height: 30vh;
+  background-color:#021442;
   background-image: url(../assets/images/bg-encabezado.webp);
+  background-attachment: fixed;
+  background-blend-mode:soft-light;
+  border-bottom: var(--border);
+}
+
+.buscador{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.encabezado form {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: start;
+}
+
+.encabezado label {
+  display: hidden;
+  margin-bottom: 5px;
+}
+
+.encabezado select,
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.encabezado button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .contenido{
@@ -319,9 +367,14 @@ button {
 }
 
 aside{
-  background-color: var(--primary-color);  
+  background-color: var(--dark-grey);  
   padding: 1rem;
   width: 50%; 
+}
+
+.title-aside{
+  padding-top: 20px;
+  border-bottom: var(--border);
 }
 
 main{
@@ -332,6 +385,8 @@ main{
   flex-wrap: wrap;
   flex-grow: 1;
   justify-content: center;  
+  padding-top: 40px;
+  gap: 40px;
 }
 
 article {
@@ -343,8 +398,8 @@ article {
   color: var(--dark-grey);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
   flex-grow: 1;
-  max-width: 33%;
-  min-width: 200px;  
+  max-width: 30%;
+  min-width: 270px;  
 }
 
  article img {
@@ -356,6 +411,17 @@ article {
   object-fit: cover;
   object-position: center center;
   
+}
+.property-info{
+  padding: 5px;
+}
+
+.property-price{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  color: var(--primary-color);
+  font-size: 1.3rem;
 }
 
 .badge {

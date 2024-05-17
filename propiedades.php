@@ -1,6 +1,6 @@
 <?php
 //$random = mt_rand(0, 400);
-const API_URL = "https://www.tokkobroker.com/api/v1/property/5139464/?key=0e34db4a9d01fbb50f90b82443870ac54da3ece7";
+const API_URL = "https://www.tokkobroker.com/api/v1/property/5609294/?key=0e34db4a9d01fbb50f90b82443870ac54da3ece7";
 $result = file_get_contents(API_URL);
 $data = json_decode($result, true);
 //$cantidadEmprendimientos = $data['meta']['total_count'];
@@ -181,15 +181,64 @@ $data = json_decode($result, true);
       </div>
     </header>
     <div id="container">
-      <section class="encabezado">
-       <h2>Propiedades</h2>
+      <section class="encabezado">       
+       <div class="buscador">
+        <h1>¡Encuentra tu propiedad ideal!</h1>
+        <form action="#">
+            <div class="flex-row">
+                <label for="tipoOperacion" hidden>Tipo de Operación:</label>
+                <select id="tipoOperacion" name="tipoOperacion">
+                    <option value="alquiler">Alquiler</option>
+                    <option value="venta">Venta</option>
+                </select>
+            </div>
+            <div class="flex-row">
+                <label for="tipoPropiedad" hidden>Tipo de Propiedad:</label>
+                <select id="tipoPropiedad" name="tipoPropiedad">
+                    <option value="">Tipo de Propiedad</option>
+                    <option value="departamentos">Departamentos</option>
+                    <option value="lotes">Lotes</option>
+                    <option value="oficinas">Oficinas</option>
+                    <option value="terrenos">Terrenos</option>
+                    <option value="casas">Casas</option>
+                    <option value="depositos">Depósitos</option>
+                    <option value="locales">Locales</option>
+                    <option value="edificios-en-block">Edificios en Block</option>
+                    <option value="campos">Campos</option>
+                    <option value="terrenos-industriales">Terrenos Industriales</option>
+                </select>
+            </div>
+            <div class="flex-row">
+                <label for="busqueda" hidden>Buscar:</label>
+                <input type="text" id="busqueda" name="busqueda" placeholder="Ingrese su búsqueda">
+            </div>
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
                    
       </section>
       <section class="contenido">
         <aside>
-          <h3>Tipo de Propiedad</h3>
+        <h3 class="title-aside">Operación</h3>
+          <ul>           
+           <li>Alquiler</li>
+           <li>Venta</li>
+          </ul>
+          <h3 class="title-aside">Tipo de Propiedad</h3>
+          <ul>           
+           <li>Departamentos</li>
+           <li>Lotes</li>
+           <li>Oficinas </li>
+           <li>Terrenos </li>
+           <li>Casas </li>
+           <li>Depósitos </li>
+           <li>Locales</li>
+           <li>Edificios en Block</li>
+           <li>Campos</li>
+           <li>Terrenos Industriales</li>
+          </ul>
         </aside>
-        <main>
+        <main>        
         <article>
             <div class="badge">
               <?php if ($data['operations'][0]['operation_type'] === 'Sale'): ?>
@@ -198,7 +247,7 @@ $data = json_decode($result, true);
                 Alquiler
               <?php endif; ?>
             </div>
-            <img src="<?=$data['photos'][0]['image'] ?? ''; ?>" alt="Propiedad">
+            <img src="<?=$data['photos'][0]['image'] ?? ''; ?>" alt="Propiedad">            
             <div class="property-info">
               <h4><?=$data['address']; ?></h4>
               <div class="property-type">                
@@ -208,6 +257,7 @@ $data = json_decode($result, true);
                   <?php echo $data['type']['name']; ?>
                 <?php endif; ?>
               </div>
+              <div class="property-price"><h4><?php echo $data['operations'][0]['prices'][0]['currency'].$data['operations'][0]['prices'][0]['price']; ?></div>
             </div>
          </article>
          <article>
@@ -218,7 +268,7 @@ $data = json_decode($result, true);
                 Alquiler
               <?php endif; ?>
             </div>
-            <img src="<?=$data['photos'][1]['image'] ?? ''; ?>" alt="Propiedad">
+            <img src="<?=$data['photos'][1]['image'] ?? ''; ?>" alt="Propiedad">            
             <div class="property-info">
               <h4><?=$data['address']; ?></h4>
               <div class="property-type">                
@@ -228,6 +278,7 @@ $data = json_decode($result, true);
                   <?php echo $data['type']['name']; ?>
                 <?php endif; ?>
               </div>
+              <div class="property-price"><h4><?php echo $data['operations'][0]['prices'][0]['currency'].$data['operations'][0]['prices'][0]['price']; ?></div>
             </div>
          </article>
          <article>
@@ -238,7 +289,7 @@ $data = json_decode($result, true);
                 Alquiler
               <?php endif; ?>
             </div>
-            <img src="<?=$data['photos'][2]['thumb'] ?? ''; ?>" alt="Propiedad">
+            <img src="<?=$data['photos'][2]['image'] ?? ''; ?>" alt="Propiedad">            
             <div class="property-info">
               <h4><?=$data['address']; ?></h4>
               <div class="property-type">                
@@ -248,6 +299,7 @@ $data = json_decode($result, true);
                   <?php echo $data['type']['name']; ?>
                 <?php endif; ?>
               </div>
+              <div class="property-price"><h4><?php echo $data['operations'][0]['prices'][0]['currency'].$data['operations'][0]['prices'][0]['price']; ?></div>
             </div>
          </article>
          <article>
@@ -258,7 +310,7 @@ $data = json_decode($result, true);
                 Alquiler
               <?php endif; ?>
             </div>
-            <img src="<?=$data['photos'][3]['thumb'] ?? ''; ?>" alt="Propiedad">
+            <img src="<?=$data['photos'][3]['image'] ?? ''; ?>" alt="Propiedad">            
             <div class="property-info">
               <h4><?=$data['address']; ?></h4>
               <div class="property-type">                
@@ -268,6 +320,7 @@ $data = json_decode($result, true);
                   <?php echo $data['type']['name']; ?>
                 <?php endif; ?>
               </div>
+              <div class="property-price"><h4><?php echo $data['operations'][0]['prices'][0]['currency'].$data['operations'][0]['prices'][0]['price']; ?></div>
             </div>
          </article>
          <article>
@@ -278,7 +331,7 @@ $data = json_decode($result, true);
                 Alquiler
               <?php endif; ?>
             </div>
-            <img src="<?=$data['photos'][0]['image'] ?? ''; ?>" alt="Propiedad">
+            <img src="<?=$data['photos'][0]['image'] ?? ''; ?>" alt="Propiedad">            
             <div class="property-info">
               <h4><?=$data['address']; ?></h4>
               <div class="property-type">                
@@ -288,6 +341,7 @@ $data = json_decode($result, true);
                   <?php echo $data['type']['name']; ?>
                 <?php endif; ?>
               </div>
+              <div class="property-price"><h4><?php echo $data['operations'][0]['prices'][0]['currency'].$data['operations'][0]['prices'][0]['price']; ?></div>
             </div>
          </article>
          <article>
@@ -298,7 +352,7 @@ $data = json_decode($result, true);
                 Alquiler
               <?php endif; ?>
             </div>
-            <img src="<?=$data['photos'][1]['image'] ?? ''; ?>" alt="Propiedad">
+            <img src="<?=$data['photos'][1]['image'] ?? ''; ?>" alt="Propiedad">            
             <div class="property-info">
               <h4><?=$data['address']; ?></h4>
               <div class="property-type">                
@@ -308,6 +362,7 @@ $data = json_decode($result, true);
                   <?php echo $data['type']['name']; ?>
                 <?php endif; ?>
               </div>
+              <div class="property-price"><h4><?php echo $data['operations'][0]['prices'][0]['currency'].$data['operations'][0]['prices'][0]['price']; ?></div>
             </div>
          </article>
          <article>
@@ -318,7 +373,7 @@ $data = json_decode($result, true);
                 Alquiler
               <?php endif; ?>
             </div>
-            <img src="<?=$data['photos'][2]['thumb'] ?? ''; ?>" alt="Propiedad">
+            <img src="<?=$data['photos'][3]['image'] ?? ''; ?>" alt="Propiedad">            
             <div class="property-info">
               <h4><?=$data['address']; ?></h4>
               <div class="property-type">                
@@ -328,6 +383,7 @@ $data = json_decode($result, true);
                   <?php echo $data['type']['name']; ?>
                 <?php endif; ?>
               </div>
+              <div class="property-price"><h4><?php echo $data['operations'][0]['prices'][0]['currency'].$data['operations'][0]['prices'][0]['price']; ?></div>
             </div>
          </article>
          <article>
@@ -338,7 +394,7 @@ $data = json_decode($result, true);
                 Alquiler
               <?php endif; ?>
             </div>
-            <img src="<?=$data['photos'][3]['thumb'] ?? ''; ?>" alt="Propiedad">
+            <img src="<?=$data['photos'][0]['image'] ?? ''; ?>" alt="Propiedad">            
             <div class="property-info">
               <h4><?=$data['address']; ?></h4>
               <div class="property-type">                
@@ -348,6 +404,91 @@ $data = json_decode($result, true);
                   <?php echo $data['type']['name']; ?>
                 <?php endif; ?>
               </div>
+              <div class="property-price"><h4><?php echo $data['operations'][0]['prices'][0]['currency'].$data['operations'][0]['prices'][0]['price']; ?></div>
+            </div>
+         </article>
+         <article>
+            <div class="badge">
+              <?php if ($data['operations'][0]['operation_type'] === 'Sale'): ?>
+                Venta
+              <?php elseif ($data['operations'][0]['operation_type'] === 'Rent'): ?>
+                Alquiler
+              <?php endif; ?>
+            </div>
+            <img src="<?=$data['photos'][1]['image'] ?? ''; ?>" alt="Propiedad">            
+            <div class="property-info">
+              <h4><?=$data['address']; ?></h4>
+              <div class="property-type">                
+                <?php if ($data['type']['code'] === 'LA'): ?>
+                  Terreno
+                <?php else: ?>
+                  <?php echo $data['type']['name']; ?>
+                <?php endif; ?>
+              </div>
+              <div class="property-price"><h4><?php echo $data['operations'][0]['prices'][0]['currency'].$data['operations'][0]['prices'][0]['price']; ?></div>
+            </div>
+         </article>
+         <article>
+            <div class="badge">
+              <?php if ($data['operations'][0]['operation_type'] === 'Sale'): ?>
+                Venta
+              <?php elseif ($data['operations'][0]['operation_type'] === 'Rent'): ?>
+                Alquiler
+              <?php endif; ?>
+            </div>
+            <img src="<?=$data['photos'][2]['image'] ?? ''; ?>" alt="Propiedad">            
+            <div class="property-info">
+              <h4><?=$data['address']; ?></h4>
+              <div class="property-type">                
+                <?php if ($data['type']['code'] === 'LA'): ?>
+                  Terreno
+                <?php else: ?>
+                  <?php echo $data['type']['name']; ?>
+                <?php endif; ?>
+              </div>
+              <div class="property-price"><h4><?php echo $data['operations'][0]['prices'][0]['currency'].$data['operations'][0]['prices'][0]['price']; ?></div>
+            </div>
+         </article>
+         <article>
+            <div class="badge">
+              <?php if ($data['operations'][0]['operation_type'] === 'Sale'): ?>
+                Venta
+              <?php elseif ($data['operations'][0]['operation_type'] === 'Rent'): ?>
+                Alquiler
+              <?php endif; ?>
+            </div>
+            <img src="<?=$data['photos'][3]['image'] ?? ''; ?>" alt="Propiedad">            
+            <div class="property-info">
+              <h4><?=$data['address']; ?></h4>
+              <div class="property-type">                
+                <?php if ($data['type']['code'] === 'LA'): ?>
+                  Terreno
+                <?php else: ?>
+                  <?php echo $data['type']['name']; ?>
+                <?php endif; ?>
+              </div>
+              <div class="property-price"><h4><?php echo $data['operations'][0]['prices'][0]['currency'].$data['operations'][0]['prices'][0]['price']; ?></div>
+            </div>
+         </article>
+         <article>
+            <div class="badge">
+              <?php if ($data['operations'][0]['operation_type'] === 'Sale'): ?>
+                Venta
+              <?php elseif ($data['operations'][0]['operation_type'] === 'Rent'): ?>
+                Alquiler
+              <?php endif; ?>
+            </div>
+            <img src="<?=$data['photos'][0]['image'] ?? ''; ?>" alt="Propiedad">            
+            <div class="property-info">
+              <h4><?=$data['address']; ?></h4>
+              <div class="property-type">                
+                <?php if ($data['type']['code'] === 'LA'): ?>
+                  Terreno
+                <?php else: ?>
+                  <?php echo $data['type']['name']; ?>
+                <?php endif; ?>
+              </div>
+              <div class="property-price"><h4><?php echo $data['operations'][0]['prices'][0]['currency'].$data['operations'][0]['prices'][0]['price']; ?></div>
             </div>
          </article>     
         </main>
