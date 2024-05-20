@@ -1,6 +1,6 @@
 <?php
 //$random = mt_rand(0, 400);
-const API_URL = "https://www.tokkobroker.com/api/v1/property/6082492/?key=0e34db4a9d01fbb50f90b82443870ac54da3ece7";
+const API_URL = "https://www.tokkobroker.com/api/v1/development/56160/?key=0e34db4a9d01fbb50f90b82443870ac54da3ece7";
 $result = file_get_contents(API_URL);
 $data = json_decode($result, true);
 //$cantidadEmprendimientos = $data['meta']['total_count'];
@@ -183,89 +183,84 @@ $data = json_decode($result, true);
       </div>
     </header>
     <div id="container">
-      <div class="property-header">
-        <div >
-             <div class="gallery-container">
-                <div class="main-image" id="main-image">
-                    <img src="<?=$data['photos'][0]['image'] ?? ''; ?>" alt="Imagen Principal">
-                </div>
-               
-                <div class="thumbnail-navigation">
-                    <span class="arrow" id="prev-arrow" onclick="navigateThumbnails(-1)">&#10094;</span>
-                    <div class="thumbnail-container" id="thumbnail-container">
-                        <img src="<?=$data['photos'][2]['image'] ?? ''; ?>" alt="Thumbnail 1" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
-                        <img src="<?=$data['photos'][3]['image'] ?? ''; ?>" alt="Thumbnail 2" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
-                        <img src="<?=$data['photos'][4]['image'] ?? ''; ?>" alt="Thumbnail 3" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
-                        <img src="<?=$data['photos'][5]['image'] ?? ''; ?>" alt="Thumbnail 4" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
-                        <img src="<?=$data['photos'][6]['image'] ?? ''; ?>" alt="Thumbnail 5" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
-                        <img src="<?=$data['photos'][7]['image'] ?? ''; ?>" alt="Thumbnail 6" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
-                        <img src="<?=$data['photos'][8]['image'] ?? ''; ?>" alt="Thumbnail 7" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
-                        <img src="<?=$data['photos'][9]['image'] ?? ''; ?>" alt="Thumbnail 8" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
-                        <img src="<?=$data['photos'][10]['image'] ?? ''; ?>" alt="Thumbnail 9" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">                        
-                    </div>
-                    <span class="arrow" id="next-arrow" onclick="navigateThumbnails(1)">&#10095;</span>
+    <div class="ep-container">
+        <div class="ep-header">
+            <h1>Guayra</h1>
+            <p>Guayra y Vuelta de Obligado | Núñez | Capital Federal | Argentina</p>
+            <span class="ep-status ep-construccion">Construcción</span>
+            <span class="ep-entrega">Fecha de entrega Diciembre 2024</span>
+        </div>
+        
+        <div class="ep-content">
+        <section class="single-imgs">
+              <div class="imagen-principal-single">
+              <img src="<?=$data['photos'][0]['image'] ?? ''; ?>" alt="property 1">
+              </div>
+              <div class="imagenes-propiedad">                
+                  <img src="<?=$data['photos'][1]['image'] ?? ''; ?>" alt="property 2">
+                  <img src="<?=$data['photos'][2]['image'] ?? ''; ?>" alt="property 3">
+                  <img src="<?=$data['photos'][3]['image'] ?? ''; ?>" alt="property 4">
+                  <img src="<?=$data['photos'][4]['image'] ?? ''; ?>" alt="property 5">
+              </div>
+            </section>
+        </div>
+
+        <div class="ep-units">
+            <h2>8 Unidades disponibles</h2>
+            <div class="ep-unit">
+                <img src="<?=$data['photos'][0]['image'] ?? ''; ?>" alt="Unit Image">
+                <div class="ep-unit-info">
+                    <p>PBU56160 AP6078894 | Departamento</p>
+                    <p><?=$data['address']; ?></p>
+                    <p>1 ambiente</p>
+                    <p>1 baño</p>
+                    <p class="ep-price">Venta USD 102.555</p>
                 </div>
             </div>
-          </div>
-            <div class="property-info-single">
-                <h1><?=$data['address'];?></h1>
-                <h2><?=$data['type']['name']; ?> - <?=$data['semiroofed_surface'];?>m² - 1 ambiente</h2>
-                <h3> <?php if ($data['operations'][0]['operation_type'] === 'Sale'): ?>
-                Venta
-              <?php elseif ($data['operations'][0]['operation_type'] === 'Rent'): ?>
-                Alquiler
-              <?php endif; ?> <?=$data['operations'][0]['prices'][0]['currency'];?> <?=$data['operations'][0]['prices'][0]['price'];?></h3>
-                <p>Ubicación: <span>Río de Janeiro al 500, Almagro, Capital Federal</span></p>
-                
-                <div class="property-details">
-                    <span><i class="icon-totalconstruido" style="font-size: 24px;width: 16px;height: 16px;"></i>40 m² Totales</span>
-                    <span><i class="icon-cubierta" style="font-size: 24px;width: 16px;height: 16px;"></i>28 m² Cubiertos</span>
-                    <span><i class="icon-ambientes" style="font-size: 24px;width: 16px;height: 16px;"></i>1 Ambiente</span>
-                    <span><i class="icon-banos" style="font-size: 24px;width: 16px;height: 16px;"></i>1 baño</span>
-                    <span><i class="icon-dormitorios" style="font-size: 24px;width: 16px;height: 16px;"></i>1 Dormitorio</span>
-                    <span><i class="icon-toilletes" style="font-size: 24px;width: 16px;height: 16px;"></i>1 Toilette</span>
-                    <span><i class="icon-cochera" style="font-size: 24px;width: 16px;height: 16px;"></i>Cochera</span>
+            <div class="ep-unit">
+                <img src="<?=$data['photos'][0]['image'] ?? ''; ?>" alt="Unit Image">
+                <div class="ep-unit-info">
+                    <p>PBU56160 AP6078897 | Departamento</p>
+                    <p>Guayra y Vuelta de Obligado</p>
+                    <p>2 ambientes</p>
+                    <p>1 baño</p>
+                    <p class="ep-price">Venta USD 167.373</p>
+                </div>
+            </div>
+            <div class="ep-unit">
+                <img src="<?=$data['photos'][0]['image'] ?? ''; ?>" alt="Unit Image">
+                <div class="ep-unit-info">
+                    <p>PBU56160 AP6078899 | Departamento</p>
+                    <p>Guayra y Vuelta de Obligado</p>
+                    <p>2 ambientes</p>
+                    <p>1 baño</p>
+                    <p class="ep-price">Venta USD 144.638</p>
+                </div>
+            </div>
+            <div class="ep-unit">
+                <img src="<?=$data['photos'][0]['image'] ?? ''; ?>" alt="Unit Image">
+                <div class="ep-unit-info">
+                    <p>PBU56160 AP6078900 | Departamento</p>
+                    <p>Guayra y Vuelta de Obligado</p>
+                    <p>1 ambiente</p>
+                    <p>1 baño</p>
+                    <p class="ep-price">Venta USD 104.490</p>
                 </div>
             </div>
         </div>
-        <section class="description">
-            <h3>En Construcción! Monoambiente con Balcón Aterrazado en Lo Mejor de Almagro!</h3>
-            <p>Entrega: JUNIO 2025</p>
-            <button id="toggleDescription">Leer descripción completa</button>
-            <p id="fullDescription" class="hidden">
-                Descripción completa de la propiedad....
-            </p>
-        </section>
-        <section class="features">
-            <h3>Conocé más sobre esta propiedad</h3>
-            <ul id="tabs">
-                <li class="active" data-tab="generalCharacteristics">Características generales</li>
-                <li data-tab="environments">Ambientes</li>
-                <li data-tab="characteristics">Características</li>
-            </ul>
-            <div id="generalCharacteristics" class="tab-content active">
-                <ul>
-                    <li>Apto profesional</li>
-                    <li>Cantidad plantas: 1</li>
-                    <li>Parrilla</li>
-                    <li>Pileta</li>
-                    <li>Solarium</li>
-                    <li>Superficie Semicubierta (m²): 0</li>
-                </ul>
-            </div>
-            <div id="environments" class="tab-content">
-                <p>Content under 'Ambientes'</p>
-            </div>
-            <div id="characteristics" class="tab-content">
-                <p>Content under 'Características'</p>
-            </div>
-        </section>
-        <div class="map">
+
+        <div class="ep-description">
+            <h2>Descripción</h2>
+            <p>Departamentos de 1 y 2 ambientes en Núñez. Excelente oportunidad para vivir e invertir en el corredor norte. Zona considerada como una de las de mayor crecimiento potenciada por la construcción del viaducto Mitre. Revalorización por la interconexión de dos ejes comerciales como son la Av. Cabildo y Av. del Libertador. FACHADA Frente vidriado y hormigón vista. ASCENSORES . Acero inoxidable y espejo. ABERTURAS . Carpinterías exteriores en aluminio anodizado natural. . Carpinterías interiores en marcos de chapa y hojas enchapadas para pintar. INSTALACIONES Electricidad: elementos de primera calidad divididos en...</p>
+        </div>
+
+        <div class="ep-location">
+            <h2>Ubicación</h2>
+            <div class="map">
                     <iframe src="https://maps.google.com/?q=<?=$data['address']; ?>&output=embed"></iframe>
         </div>
+        </div>
     </div>
-
-
     </div>    
     <footer>
     <div class="footer-content">

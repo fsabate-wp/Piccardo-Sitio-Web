@@ -196,8 +196,9 @@ $data = json_decode($result, true);
               </div>
             </section>
             <div class="property-info-single">
-                <h1><?=$data['type']['name']; ?> - <?=$data['semiroofed_surface'];?>m² - 1 ambiente</h1>
-                <h2> <?php if ($data['operations'][0]['operation_type'] === 'Sale'): ?>
+                <h1><?=$data['address'];?></h1>
+                <span><?=$data['type']['name']; ?> - <?=$data['semiroofed_surface'];?>m² - 1 ambiente</span>
+                <h2 style="color: #D6552b;"> <?php if ($data['operations'][0]['operation_type'] === 'Sale'): ?>
                 Venta
               <?php elseif ($data['operations'][0]['operation_type'] === 'Rent'): ?>
                 Alquiler
@@ -220,7 +221,7 @@ $data = json_decode($result, true);
             <p>Entrega: JUNIO 2025</p>
             <button id="toggleDescription">Leer descripción completa</button>
             <p id="fullDescription" class="hidden">
-                Descripción completa de la propiedad....
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget sollicitudin lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque eget mi enim. Nulla venenatis ante id nisi ultrices tincidunt. Sed convallis urna vel lectus consequat vulputate. Donec a fermentum felis. Nulla dictum justo non lacus ultrices euismod. Cras rutrum odio vitae est porttitor, sed fermentum arcu elementum. Morbi maximus lorem eget velit malesuada semper. Aliquam purus sem, accumsan tempor lacus at, maximus scelerisque turpis.
             </p>
         </section>
         <section class="features">
@@ -241,10 +242,10 @@ $data = json_decode($result, true);
                 </ul>
             </div>
             <div id="environments" class="tab-content">
-                <p>Content under 'Ambientes'</p>
+                <p>Contenido 'Ambientes'</p>
             </div>
             <div id="characteristics" class="tab-content">
-                <p>Content under 'Características'</p>
+                <p>Contenido 'Características'</p>
             </div>
         </section>
         <div class="map">

@@ -119,6 +119,7 @@ button {
   position: relative;
   background: var(--primary-color);
   border-radius: 6px;
+  padding-left: 15%;
 }
 
 
@@ -379,6 +380,10 @@ aside{
   border-bottom: var(--border);
 }
 
+.aside-empre {
+  width: 30%;
+}
+
 main{
   display: flex;  
   flex-direction: row;
@@ -549,6 +554,7 @@ article {
 .single-imgs {
   display: flex;
   flex-direction: row;
+  width: 80%;
 }
 
 .imagenes-propiedad {
@@ -673,6 +679,7 @@ article {
 .thumbnail-container {
   display: flex;
   overflow: hidden;
+  padding: 10px;
  /* width: 320px; Adjust width to show desired number of thumbnails */
 }
 
@@ -685,6 +692,8 @@ article {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .thumbnail img {
@@ -714,10 +723,13 @@ article {
 }
 .canasta {
   display: flex;
+  width: 80%;
 }
 .frutero {
   height: 100vh;
   width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .manzanas {
@@ -764,8 +776,7 @@ article {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 40px;
+  padding: 30px 20px 40px 20px;
 }
 .card {
   flex: 1;
@@ -873,4 +884,102 @@ footer {
 
 .footer p {
   margin: 5px 0;
+}
+
+
+.ep-container {
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+}
+
+.ep-header {
+  margin-bottom: 20px;
+}
+
+.ep-header h1, .ep-header p {
+  margin: 0;
+}
+
+.ep-status {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+.ep-construccion {
+  background-color: #D6552b;
+}
+
+.ep-entrega {
+  font-weight: bold;
+}
+
+.ep-content {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.ep-main-image img {
+  max-width: 100%;
+}
+
+.ep-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+
+.ep-gallery img {
+  width: 30%;
+  margin: 5px;
+}
+
+.ep-gallery span {
+  width: 30%;
+  margin: 5px;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+}
+
+.ep-units {
+  margin-bottom: 20px;
+}
+
+.ep-unit {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.ep-unit img {
+  width: 150px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.ep-unit-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ep-unit-info p {
+  margin: 0;
+}
+
+.ep-price {
+  font-weight: bold;
+  color: #D6552b;
+}
+
+.ep-description, .ep-location {
+  margin-bottom: 20px;
+}
+
+.ep-location img {
+  max-width: 100%;
 }

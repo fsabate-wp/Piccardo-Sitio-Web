@@ -1,6 +1,6 @@
 <?php
 //$random = mt_rand(0, 400);
-const API_URL = "https://www.tokkobroker.com/api/v1/development/?limit=6&key=0e34db4a9d01fbb50f90b82443870ac54da3ece7";
+const API_URL = "https://www.tokkobroker.com/api/v1/development/?limit=9&key=0e34db4a9d01fbb50f90b82443870ac54da3ece7";
 $result = file_get_contents(API_URL);
 $data = json_decode($result, true);
 $emprendimientos = $data['objects'];
@@ -186,7 +186,7 @@ $emprendimientos = $data['objects'];
         <h1>Emprendimientos</h1>
       </div>
       <div class="contenido">
-        <aside>          
+      <aside class="aside-empre">          
             <h3 class="title-aside">Tipo de Emprendimiento</h3>
             <ul>           
             <li>En Pozo / Preventa</li>

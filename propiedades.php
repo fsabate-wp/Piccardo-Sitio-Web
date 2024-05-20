@@ -1,6 +1,6 @@
 <?php
 //$random = mt_rand(0, 400);
-const API_URL = "https://www.tokkobroker.com/api/v1/property/5609294/?key=0e34db4a9d01fbb50f90b82443870ac54da3ece7";
+const API_URL = "https://www.tokkobroker.com/api/v1/property/6082492/?key=0e34db4a9d01fbb50f90b82443870ac54da3ece7";
 $result = file_get_contents(API_URL);
 $data = json_decode($result, true);
 //$cantidadEmprendimientos = $data['meta']['total_count'];
