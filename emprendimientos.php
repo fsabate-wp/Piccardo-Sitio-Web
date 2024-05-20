@@ -1,8 +1,9 @@
 <?php
 //$random = mt_rand(0, 400);
-const API_URL = "https://www.tokkobroker.com/api/v1/development/?key=0e34db4a9d01fbb50f90b82443870ac54da3ece7";
+const API_URL = "https://www.tokkobroker.com/api/v1/development/?limit=6&key=0e34db4a9d01fbb50f90b82443870ac54da3ece7";
 $result = file_get_contents(API_URL);
 $data = json_decode($result, true);
+$emprendimientos = $data['objects'];
 //$cantidadEmprendimientos = $data['meta']['total_count'];
 ?>
 
@@ -184,14 +185,54 @@ $data = json_decode($result, true);
       <div class="encabezado">
         <h1>Emprendimientos</h1>
       </div>
-      <div class="aside">
-
+      <div class="contenido">
+        <aside>          
+            <h3 class="title-aside">Tipo de Emprendimiento</h3>
+            <ul>           
+            <li>En Pozo / Preventa</li>
+            <li>En Construcción</li>
+            <li>Terminado</li>
+            </ul>
+        </aside>
+        <div class="grilla-emprende">
+          <?php foreach ($emprendimientos as $emprendimiento): ?>
+            <div class="card">
+              <img src="<?php echo $emprendimiento['photos'][0]['image']; ?>" alt="<?php echo $emprendimiento['name']; ?>">
+              <div class="card-content">
+                <h3><?php echo $emprendimiento['address']; ?></h3>
+                <p><?php echo $emprendimiento['location']['name']; ?></p>
+                <a href="#">Ver más</a>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
       </div>
     </div>    
     <footer>
-      <div>
-        <a href="">Piccardo Propiedades <i class='bx bx-copyright'></i> 2024</a>
-      </div>
+    <div class="footer-content">
+            <div class="contact-info">
+                <p><i class='bx bx-home-alt'></i> Libertad 1269 Piso 10 Dpto. A CABA</p>
+                <p><i class="bx bx-envelope"></i> martinpiccardo@piccardopropiedades.com</p>
+                <p><i class="bx bx-mobile"></i> +54 9 1162085380</p>
+            </div>
+            <div class="logo-social">
+                <img src="assets\images\piccard-comp-white.webp"
+                   alt="Piccardo Propiedades Logo" class="logo-f">
+                
+                <div class="social-media">
+                  <a href="https://www.instagram.com/piccardo.propiedades/"><i class='bx bxl-instagram-alt'></i></a>
+                  <a href="https://www.facebook.com/Piccardo-Propiedades-105944338553140"><i class='bx bxl-facebook-circle' ></i></a>
+                  <a href="https://www.linkedin.com/company/piccardo-propiedades/"><i class='bx bxl-linkedin-square'></i></a>
+                </div>
+            </div>
+            <div class="legal-info">
+                <p>Mariela Susana Norberto<br>Matrícula CUCICBA 4642</p>
+                <p><a href="#">Términos y Condiciones</a> | <a href="#">Políticas de Privacidad</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2024 - Todos los Derechos Reservados</p>
+        </div>
     </footer>
     <script src="script-menu.js"></script>
   </body>

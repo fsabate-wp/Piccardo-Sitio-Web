@@ -268,9 +268,30 @@ $data = json_decode($result, true);
 
     </div>    
     <footer>
-      <div>
-        <a href="">Piccardo Propiedades <i class='bx bx-copyright'></i> 2024</a>
-      </div>
+    <div class="footer-content">
+            <div class="contact-info">
+                <p><i class='bx bx-home-alt'></i> Libertad 1269 Piso 10 Dpto. A CABA</p>
+                <p><i class="bx bx-envelope"></i> martinpiccardo@piccardopropiedades.com</p>
+                <p><i class="bx bx-mobile"></i> +54 9 1162085380</p>
+            </div>
+            <div class="logo-social">
+                <img src="assets\images\piccard-comp-white.webp"
+                   alt="Piccardo Propiedades Logo-f" class="logo-f">
+                
+                <div class="social-media">
+                  <a href="https://www.instagram.com/piccardo.propiedades/"><i class='bx bxl-instagram-alt'></i></a>
+                  <a href="https://www.facebook.com/Piccardo-Propiedades-105944338553140"><i class='bx bxl-facebook-circle' ></i></a>
+                  <a href="https://www.linkedin.com/company/piccardo-propiedades/"><i class='bx bxl-linkedin-square'></i></a>
+                </div>
+            </div>
+            <div class="legal-info">
+                <p>Mariela Susana Norberto<br>Matrícula CUCICBA 4642</p>
+                <p><a href="#">Términos y Condiciones</a> | <a href="#">Políticas de Privacidad</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2024 - Todos los Derechos Reservados</p>
+        </div>
     </footer>
     <script src="script-menu.js"></script>
   </body>
