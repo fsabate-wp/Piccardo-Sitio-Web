@@ -1,3 +1,11 @@
+<?php
+//$random = mt_rand(0, 400);
+const API_URL = "https://www.tokkobroker.com/api/v1/development/?key=0e34db4a9d01fbb50f90b82443870ac54da3ece7";
+$result = file_get_contents(API_URL);
+$data = json_decode($result, true);
+//$cantidadEmprendimientos = $data['meta']['total_count'];
+?>
+
 <!DOCTYPE html>
 <html lang="es-ar">
   <head>
@@ -15,9 +23,9 @@
     <link rel="shortcut icon" href="assets\images\favicon.ico" type="image/x-icon">
     <script src="assets/js/lazy.js"></script>
     <title>Piccardo Propiedades</title>
+    
   </head>
   <body>
-  <a href="https://wa.me/593994456461?text=" class="whatsapp" target="_blank"> <i class='bx bxl-whatsapp'></i></a>
     <header id="nav-menu" aria-label="navigation bar">
       <div id="top-bar">
         <div class="top-bar-socials">
@@ -159,6 +167,9 @@
           </nav>
         </div>
         <div class="nav-end">
+          <div class="right-container">
+                        
+          </div>
           <button
             id="hamburger"
             aria-label="hamburger"
@@ -171,9 +182,18 @@
       </div>
     </header>
     <div id="container">
-      <section class="primera-seccion">
-        <video id="mi-video" src="assets\videos\vd_fdo.mp4" type="video/mp4" autoplay muted loop></video>           
-      </section>
+      <div class="encabezado">
+        <h1>Contacto</h1>
+      </div>
+      <div id="landingForm">
+       <div class="titulo2"></div>
+          <div><label>Name:</label><input type="text" id="name"/></div>
+          <div><label>Phone:</label><input type="text" id="phone"/></div>
+          <div><label>Cellphone:</label><input type="text" id="cellphone"/></div>
+          <div><label>Email:</label><input type="text" id="email"/></div>
+          <div><label>Message:</label><textarea id="message"></textarea></div>
+          <input type="button" onclick="send()" value="SEND"></div>
+       </div>
     </div>    
     <footer>
       <div>

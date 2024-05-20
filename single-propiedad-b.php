@@ -1,3 +1,11 @@
+<?php
+//$random = mt_rand(0, 400);
+const API_URL = "https://www.tokkobroker.com/api/v1/property/6082492/?key=0e34db4a9d01fbb50f90b82443870ac54da3ece7";
+$result = file_get_contents(API_URL);
+$data = json_decode($result, true);
+//$cantidadEmprendimientos = $data['meta']['total_count'];
+?>
+
 <!DOCTYPE html>
 <html lang="es-ar">
   <head>
@@ -9,6 +17,7 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link href="https://static.tokkobroker.com/static/css/tokko-icons.css?20240519062942" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -159,6 +168,9 @@
           </nav>
         </div>
         <div class="nav-end">
+          <div class="right-container">
+                        
+          </div>
           <button
             id="hamburger"
             aria-label="hamburger"
@@ -171,9 +183,89 @@
       </div>
     </header>
     <div id="container">
-      <section class="primera-seccion">
-        <video id="mi-video" src="assets\videos\vd_fdo.mp4" type="video/mp4" autoplay muted loop></video>           
-      </section>
+      <div class="property-header">
+        <div>
+             <div class="gallery-container">
+                <div class="main-image" id="main-image">
+                    <img src="<?=$data['photos'][0]['image'] ?? ''; ?>" alt="Imagen Principal">
+                </div>
+               
+                <div class="thumbnail-navigation">
+                    <span class="arrow" id="prev-arrow" onclick="navigateThumbnails(-1)">&#10094;</span>
+                    <div class="thumbnail-container" id="thumbnail-container">
+                        <img src="<?=$data['photos'][2]['image'] ?? ''; ?>" alt="Thumbnail 1" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
+                        <img src="<?=$data['photos'][3]['image'] ?? ''; ?>" alt="Thumbnail 2" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
+                        <img src="<?=$data['photos'][4]['image'] ?? ''; ?>" alt="Thumbnail 3" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
+                        <img src="<?=$data['photos'][5]['image'] ?? ''; ?>" alt="Thumbnail 4" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
+                        <img src="<?=$data['photos'][6]['image'] ?? ''; ?>" alt="Thumbnail 5" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
+                        <img src="<?=$data['photos'][7]['image'] ?? ''; ?>" alt="Thumbnail 6" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
+                        <img src="<?=$data['photos'][8]['image'] ?? ''; ?>" alt="Thumbnail 7" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
+                        <img src="<?=$data['photos'][9]['image'] ?? ''; ?>" alt="Thumbnail 8" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">
+                        <img src="<?=$data['photos'][10]['image'] ?? ''; ?>" alt="Thumbnail 9" class="thumbnail" onclick="changeImage('<?=$data['photos'][1]['image'] ?? ''; ?>')">                        
+                    </div>
+                    <span class="arrow" id="next-arrow" onclick="navigateThumbnails(1)">&#10095;</span>
+                </div>
+            </div>
+          </div>
+            <div class="property-info-single">
+                <h1><?=$data['address'];?></h1>
+                <h2><?=$data['type']['name']; ?> - <?=$data['semiroofed_surface'];?>m² - 1 ambiente</h2>
+                <h3> <?php if ($data['operations'][0]['operation_type'] === 'Sale'): ?>
+                Venta
+              <?php elseif ($data['operations'][0]['operation_type'] === 'Rent'): ?>
+                Alquiler
+              <?php endif; ?> <?=$data['operations'][0]['prices'][0]['currency'];?> <?=$data['operations'][0]['prices'][0]['price'];?></h3>
+                <p>Ubicación: <span>Río de Janeiro al 500, Almagro, Capital Federal</span></p>
+                
+                <div class="property-details">
+                    <span><i class="icon-totalconstruido" style="font-size: 24px;width: 16px;height: 16px;"></i>40 m² Totales</span>
+                    <span><i class="icon-cubierta" style="font-size: 24px;width: 16px;height: 16px;"></i>28 m² Cubiertos</span>
+                    <span><i class="icon-ambientes" style="font-size: 24px;width: 16px;height: 16px;"></i>1 Ambiente</span>
+                    <span><i class="icon-banos" style="font-size: 24px;width: 16px;height: 16px;"></i>1 baño</span>
+                    <span><i class="icon-dormitorios" style="font-size: 24px;width: 16px;height: 16px;"></i>1 Dormitorio</span>
+                    <span><i class="icon-toilletes" style="font-size: 24px;width: 16px;height: 16px;"></i>1 Toilette</span>
+                    <span><i class="icon-cochera" style="font-size: 24px;width: 16px;height: 16px;"></i>Cochera</span>
+                </div>
+            </div>
+        </div>
+        <section class="description">
+            <h3>En Construcción! Monoambiente con Balcón Aterrazado en Lo Mejor de Almagro!</h3>
+            <p>Entrega: JUNIO 2025</p>
+            <button id="toggleDescription">Leer descripción completa</button>
+            <p id="fullDescription" class="hidden">
+                Descripción completa de la propiedad....
+            </p>
+        </section>
+        <section class="features">
+            <h3>Conocé más sobre esta propiedad</h3>
+            <ul id="tabs">
+                <li class="active" data-tab="generalCharacteristics">Características generales</li>
+                <li data-tab="environments">Ambientes</li>
+                <li data-tab="characteristics">Características</li>
+            </ul>
+            <div id="generalCharacteristics" class="tab-content active">
+                <ul>
+                    <li>Apto profesional</li>
+                    <li>Cantidad plantas: 1</li>
+                    <li>Parrilla</li>
+                    <li>Pileta</li>
+                    <li>Solarium</li>
+                    <li>Superficie Semicubierta (m²): 0</li>
+                </ul>
+            </div>
+            <div id="environments" class="tab-content">
+                <p>Content under 'Ambientes'</p>
+            </div>
+            <div id="characteristics" class="tab-content">
+                <p>Content under 'Características'</p>
+            </div>
+        </section>
+        <div class="map">
+                    <iframe src="https://maps.google.com/?q=<?=$data['address']; ?>&output=embed"></iframe>
+        </div>
+    </div>
+
+
     </div>    
     <footer>
       <div>

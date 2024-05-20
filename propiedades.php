@@ -25,6 +25,7 @@ $data = json_decode($result, true);
     <title>Piccardo Propiedades</title>
   </head>
   <body>
+  <a href="https://wa.me/593994456461?text=" class="whatsapp" target="_blank"> <i class='bx bxl-whatsapp'></i></a>
     <header id="nav-menu" aria-label="navigation bar">
       <div id="top-bar">
         <div class="top-bar-socials">

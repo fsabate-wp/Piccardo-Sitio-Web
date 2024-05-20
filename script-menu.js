@@ -69,3 +69,29 @@ const lazy = new Lazy(video, {
   threshold: 200 // Distancia desde el elemento al viewport para cargar
 });
 
+document.getElementById('toggleDescription').addEventListener('click', function() {
+  const fullDescription = document.getElementById('fullDescription');
+  if (fullDescription.classList.contains('hidden')) {
+      fullDescription.classList.remove('hidden');
+      this.textContent = 'Ocultar descripción completa';
+  } else {
+      fullDescription.classList.add('hidden');
+      this.textContent = 'Leer descripción completa';
+  }
+});
+
+const tabs = document.querySelectorAll('#tabs li');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', function() {
+      tabs.forEach(item => item.classList.remove('active'));
+      tab.classList.add('active');
+
+      const tabContent = document.querySelector(`#${this.dataset.tab}`);
+      tabContents.forEach(content => content.classList.remove('active'));
+
+      tabContent.classList.add('active');
+  });
+});
+
